@@ -1,0 +1,17 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+{% include 'header.html' %}
+     <form method="post">
+         {% csrf_token %}
+          <table   style="text-align: center">
+            {{user_form }}
+
+         <tr><th colspan="2"><button type="submit" class="btn btn-info">Update Employee</button></th></tr>
+              </table>
+
+
+     </form>
+
+
+{% endblock %}

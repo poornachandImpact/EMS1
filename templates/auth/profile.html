@@ -1,0 +1,30 @@
+{% extends 'employee/base.html' %}
+{% block content %}
+{% include 'header.html' %}
+
+<table class="table">
+    <h2>My Profile</h2>
+    <tr>
+        <th>First Name</th>
+        <th>{{object.user.first_name}}</th>
+    </tr>
+     <tr>
+        <th>Last Name</th>
+        <th>{{object.user.last_name}}</th>
+    </tr>
+     <tr>
+        <th>Email</th>
+        <th>{{object.user.email}}</th>
+    </tr>
+     <tr>
+        <th>Salary</th>
+        <th>{{object.salary}}</th>
+    </tr>
+     <tr>
+        <th>Email</th>
+        <th>{{object.designation}}</th>
+    </tr>
+</table>
+
+<a style="float: right" href="{% url 'update_profile' %}" class="btn btn-warning">Edit Profile</a>
+{% endblock %}

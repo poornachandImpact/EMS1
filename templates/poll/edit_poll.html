@@ -1,0 +1,16 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+<form  action="/poll/poll_modify/" method="put">
+    {% csrf_token %}
+    <table class="table table-bordered table-light" >
+        {{poll_form.as_table}}
+
+        {% for form in choice_forms %}
+            {{form}}
+
+        {% endfor %}
+    </table>
+    <button type="submit" class="btn btn-warning float-right">Update Poll</button>
+</form>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+<H1>Hi {{user}} User Logged In</H1>
+ <form action="{% url 'logout' %}"method="post">
+    {% csrf_token %}
+   <button type="submit">Logout</button>
+
+</form>
+{% endblock %}

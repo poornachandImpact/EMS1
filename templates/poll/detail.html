@@ -1,0 +1,40 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+{% include 'header.html' %}
+ {% if question %}
+<br>
+ <h1  >{{question.title}}</h1>
+<p >Choices for this question</p>
+<ul>
+    <li>
+
+
+        <form action="/poll/{{question.id}}/" method="post">
+        {% for choice in question.choices %}
+            {% csrf_token %}
+            <p  class="alert alert-primary">
+               <input type="radio" name="choice" value="{{choice.id}}">
+                <lable>{{choice.text}}  ({{choice.votes}})</lable>
+            </p>
+
+            {% empty %}
+            <p>There is no choices available for this question</p>
+        {% endfor %}
+            <p><button type="submit" class="btn btn-success">Vote</button></p>
+         </form>
+
+
+        <p>Created By : {{question.created_by.first_name}}</p>
+    </li>
+</ul>
+{% endif %}
+
+{% for message in messages %}
+<div class="alert alert-secondary" role="alert">
+  {{message}}
+</div>
+
+{% endfor %}
+
+{% endblock %}

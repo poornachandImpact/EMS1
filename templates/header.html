@@ -1,0 +1,18 @@
+<!--using custom django template filter-->
+{% load poll_extras %}
+<a href="{% url 'logout' %}" class="btn btn-outline-warning" style="float: right">Logout</a>
+<a href= "{% url 'my_profile' %}" class="btn btn-light" style="float: right">{{ user.first_name}}</a>
+
+<!--if admin only visible add emp button-->
+{% if request.role == "Admin" %}
+<a href="/add_emp/" class="btn btn-info">Add Employee</a>
+
+{% endif %}
+<!--<a href="{% url 'employee_list' %}" class="btn btn-info">View Employees</a>-->
+<!--or-->
+<a href="{% url 'employee_list' %}" class="btn btn-info">{{"View Employees"|upper_str:16}}</a>
+
+<!--<a href="/poll" class="btn btn-info">Polls <span class="bg-warning">{{polls_count}}</span></a>-->
+<!--or-->
+<a href="/poll" class="btn btn-info">{{"polls" |capfirst}} <span class="bg-warning">{{polls_count}}</span></a>
+

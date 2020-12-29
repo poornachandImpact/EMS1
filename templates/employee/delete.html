@@ -1,0 +1,16 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+{% include 'header.html' %}
+    <h2>{{ user.first_name }}  &nbsp; {{ user.last_name }}</h2>
+
+     <form method="post">
+         {% csrf_token %}
+
+            <p>Are you sure to delete this employee?</p>
+        <button type="submit" class="btn btn-danger">Delete</button>
+
+     </form>
+<a href="{% url 'employee_list' %}" class="btn btn-primary">Cancel</a>
+
+{% endblock %}

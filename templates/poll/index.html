@@ -1,0 +1,26 @@
+{% extends 'employee/base.html' %}
+{% block content %}
+{% include 'header.html' %}
+<h1>List Of Polls</h1>
+<div class="container">
+    {% for x in questions %}
+    <div class="row">
+            <div class="col-sm-8">
+                <a href="/poll/{{x.id}}/details/" class="btn btn-outline-warning">{{x.title}} </a>
+
+            </div>
+            <div class="col-sm-4">
+                <!--<a href="" class="bg-info m-2 p-2 " >Details</a>-->
+
+                <!--</form>-->
+                 <!--<a href= "#" class="bg-warning m-2 p-2">Edit</a>-->
+                <!--<a href="/{{ user.id }}/employee_delete/"  class="bg-danger m-2 p-2" onclick = "return confirm('Are you sure do you want to delete this employee?');">Delete</a>-->
+                <!--<a href="#"  class="bg-danger m-2 p-2" >Delete</a>-->
+            </div>
+    </div>
+    {% endfor %}
+    <br>
+       <a href= "{% url 'poll_add' %}" class="btn btn-warning" >Add</a>
+</div>
+
+{% endblock %}
